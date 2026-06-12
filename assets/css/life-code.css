@@ -1,4 +1,15 @@
 /* ==========================================================================
+   📱 手機版安全防護：統一所有幾何邊框為 1px
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  /* 💡 使用萬用選擇器，鎖定手機畫面上所有擁有邊框的元素 */
+  *, *::before, *::after {
+    /* 使用 !important 權重，強制覆蓋原本可能寫死在各個元件上的 0.5px 或極細線條 */
+    border-width: 2px !important; 
+  }
+}
+/* ==========================================================================
    life-code.css — LIFE Matrix 計算器核心樣式
    最小字級：0.875rem（桌面）/ 1rem（手機 ≤ 480px）
    ========================================================================== */
@@ -6,16 +17,16 @@
 :root {
   --bg:          #0A0C12;
   --bg2:         #111420;
-  --bg3:         #181C2A;
+  --bg3:         #182142;
   --border:      #1E2235;
   --border2:     #2A3050;
   --border-glow: #3D4875;
-  --text:        #eef1fc;
-  --text2:       #abb2cf;
-  --text3:       #7880aa;   /* 提升至可辨識度 AA */
-  --accent:      #6C8EFF;
+  --text:        #ffffff;
+  --text2:       #80b7ff;
+  --text3:       #caffff;   /* 提升至可辨識度 AA */
+  --accent:      #6cb1ff;
   --accent2:     #9B7FFF;
-  --star:        #C8D0FF;
+  --star:        #fdffe3;
 }
 
 body {
@@ -54,7 +65,7 @@ body {
 /* ── 主容器 ── */
 .calculator {
   width: 100%; max-width: 750px;
-  margin: 60px auto;
+  margin: 4.5dvh auto;
   background: transparent !important;
 }
 
@@ -91,7 +102,7 @@ body {
   transition: border-color .3s;
 }
 .card:hover { border-color: var(--border2); }
-.card-title { font-size: 0.875rem; color: var(--text3); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1.125rem; font-family: 'DM Mono', monospace; }
+.card-title { font-size: 1.125rem; color: var(--text2); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1.125rem; font-family: 'DM Mono', monospace; }
 
 /* ── 輸入欄位 ── */
 .field-row { display: grid; grid-template-columns: repeat(4,1fr); gap: 8px; margin-bottom: 10px; }
@@ -112,12 +123,14 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 2px
   width: 100%; padding: 14px; border-radius: 8px;
   border: 0.5px solid var(--accent);
   background: linear-gradient(135deg, rgba(108,142,255,0.15), rgba(155,127,255,0.1));
-  color: var(--accent); font-size: 0.9rem;
+  color: var(--accent); font-size: 1rem;
   cursor: pointer; margin-top: 0.875rem;
   font-family: 'Noto Serif TC', serif; letter-spacing: 2px;
   transition: all .25s; box-shadow: 0 0 20px rgba(108,142,255,0.1);
 }
-.btn-p:hover  { background: linear-gradient(135deg,rgba(108,142,255,0.25),rgba(155,127,255,0.2)); box-shadow: 0 0 30px rgba(108,142,255,0.2); color: var(--star); }
+.btn-p:hover  { background: linear-gradient(135deg,rgba(108,142,255,0.25),rgba(155,127,255,0.2)); 
+  box-shadow: 0 0 30px rgba(108,142,255,0.2); color: var(--star);
+font-weight: 600;  }
 .btn-p:active { transform: scale(.99); }
 
 .btn-s {
@@ -147,35 +160,35 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 2px
 .trait-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 0.875rem; }
 .trait-card  { border-radius: 10px; padding: 0.875rem; border: 0.5px solid transparent; transition: transform .2s; }
 .trait-card:hover { transform: translateY(-1px); }
-.trait-head  { font-size: 0.875rem; font-weight: 500; margin-bottom: 4px; color: var(--text); }
-.trait-body  { font-size: 0.875rem; line-height: 1.6; color: var(--text2); }
-.trait-fate  { font-size: 0.875rem; margin-top: 5px; font-style: italic; color: var(--text3); }
-.trait-role  { font-size: 0.75rem; font-family: 'DM Mono', monospace; margin-bottom: 4px; }
+.trait-head  { font-size: 1rem; font-weight: 500; margin-bottom: 4px; color: var(--text); }
+.trait-body  { font-size: 1rem; line-height: 1.6; color: var(--text2); }
+.trait-fate  { font-size: 1rem; margin-top: 5px; font-style: italic; color: var(--text3); }
+.trait-role  { font-size: 1rem; font-family: 'DM Mono', monospace; margin-bottom: 4px; }
 
 /* ── 色板 ── */
 .palette-strip { display: flex; border-radius: 10px; overflow: hidden; height: 46px; margin: 0.875rem 0; }
 .pal-seg {
   flex: 1; display: flex; flex-direction: column;
   align-items: center; justify-content: center;
-  font-size: 0.75rem; font-weight: 500; gap: 1px; transition: flex .4s;
+  font-size: 0.875rem; font-weight: 500; gap: 1px; transition: flex .4s;
 }
 .pal-seg:hover { flex: 2; }
 
 /* ── 情感問題 ── */
 .q-block  { margin-bottom: 1.25rem; }
-.q-title  { font-size: 0.9rem; color: var(--text); margin-bottom: 0.375rem; line-height: 1.7; font-weight: 500; }
-.q-sub    { font-size: 0.875rem; color: var(--text3); margin-bottom: 0.875rem; font-style: italic; }
+.q-title  { font-size: 1.125rem; color: var(--text); margin-bottom: 0.375rem; line-height: 1.7; font-weight: 500; }
+.q-sub    { font-size: 1rem; color: var(--text3); margin-bottom: 0.875rem; font-style: italic; }
 .choice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 0.25rem; }
 .choice-card {
   border: 0.5px solid var(--border); border-radius: 10px;
-  padding: 0.875rem; cursor: pointer; transition: all .2s; background: var(--bg3);
+  padding: 0.875rem; cursor: pointer; transition: all .2s; background: var(--bg);
 }
 .choice-card:hover    { border-color: var(--border-glow); background: rgba(108,142,255,0.05); }
-.choice-card.selected { border-color: var(--accent); background: rgba(108,142,255,0.08); box-shadow: 0 0 16px rgba(108,142,255,0.1); }
+.choice-card.selected { border-color: var(--accent); background: rgba(41, 86, 233, 0.199); box-shadow: 0 0 16px rgba(108,142,255,0.1); }
 .c-icon  { font-size: 1.125rem; margin-bottom: 6px; }
-.c-title { font-size: 0.9rem; font-weight: 500; color: var(--text); margin-bottom: 3px; }
-.c-sub   { font-size: 0.875rem; color: var(--text2); line-height: 1.5; }
-.c-hint  { font-size: 0.75rem; color: var(--text3); margin-top: 5px; font-family: 'DM Mono', monospace; letter-spacing: 0.3px; }
+.c-title { font-size: 1.125rem; font-weight: 500; color: var(--text); margin-bottom: 3px; }
+.c-sub   { font-size: 1rem; color: var(--accent2); line-height: 1.5; }
+.c-hint  { font-size: 0.875rem; color: var(--text3); margin-top: 5px; font-family: 'DM Mono', monospace; letter-spacing: 0.3px; }
 .divider { height: 0.5px; background: var(--border); margin: 1.25rem 0; }
 
 /* ── 符號 ── */
@@ -201,7 +214,7 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 2px
 .tex-card.selected { border-color: var(--accent); background: rgba(108,142,255,0.08); box-shadow: 0 0 16px rgba(108,142,255,0.1); }
 .tex-icon  { font-size: 1.25rem; margin-bottom: 5px; }
 .tex-title { font-size: 0.875rem; font-weight: 500; color: var(--text); margin-bottom: 2px; }
-.tex-sub   { font-size: 0.875rem; color: var(--text2); line-height: 1.4; }
+.tex-sub   { font-size: 0.875rem; color: var(--text3); line-height: 1.4; }
 
 /* ── 輸出 ── */
 .heal-box {
@@ -209,8 +222,8 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 2px
   padding: 0.875rem 1.125rem; margin: 0.75rem 0;
   background: rgba(108,142,255,0.04); border-radius: 0 8px 8px 0;
 }
-.heal-main        { font-size: 0.9rem; color: var(--text); line-height: 1.85; font-style: italic; margin-bottom: 0.625rem; }
-.heal-sub         { font-size: 0.875rem; color: var(--text2); line-height: 1.75; }
+.heal-main        { font-size: 1.125rem; color: var(--text); line-height: 1.85; font-style: italic; margin-bottom: 0.625rem; }
+.heal-sub         { font-size: 1rem; color: var(--star); line-height: 1.75; }
 .heal-affirmation { font-size: 0.875rem; color: var(--accent); margin-top: 0.75rem; padding-top: 0.75rem; border-top: 0.5px solid var(--border); line-height: 1.7; font-style: italic; }
 
 .prompt-box {
@@ -282,7 +295,7 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 2px
 .decode-expand-wrapper.expanded { max-height: 9999px !important; opacity: 1 !important; transform: translateY(0); }
 .decode-trigger-container { text-align: center; padding: 0 1rem 3rem; transition: all 0.5s; position: relative; z-index: 10; }
 .decode-trigger-container.fade-out { opacity: 0 !important; max-height: 0 !important; padding: 0 !important; margin: 0 !important; overflow: hidden; pointer-events: none; }
-.decode-intro-text { font-size: 0.875rem; color: #2fffaf; letter-spacing: 3px; margin-bottom: 1.8rem; }
+.decode-intro-text { font-size: 0.875rem; color: #2fb3ff; letter-spacing: 3px; margin-bottom: 1.8rem; }
 .btn-decode-trigger {
   padding: 16px 40px; background: transparent;
   border: 0.5px solid #fff; color: #f0f0f5;
@@ -290,7 +303,10 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 2px
   letter-spacing: 4px; border-radius: 30px; cursor: pointer;
   transition: all 0.4s cubic-bezier(0.25,1,0.5,1);
 }
-.btn-decode-trigger:hover { border-color: #00e5ff; background: rgba(255,255,255,0.02); box-shadow: 0 0 20px rgba(0,229,255,0.25); color: #2fffaf; transform: translateY(-1px); }
+.btn-decode-trigger:hover { 
+  border-color: #00e5ff; 
+  background: rgba(255,255,255,0.02); box-shadow: 0 0 20px rgba(0,229,255,0.25);
+   color: #2fffaf; transform: translateY(-1px); }
 
 /* ── 三大行動按鈕 ── */
 .action-btns { display: flex; flex-direction: column; gap: 10px; margin-top: 1.5rem; }
@@ -306,7 +322,6 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 2px
 }
 /* 文字群組垂直居中 */
 .action-btn-text { display: flex; flex-direction: column; justify-content: center; }
-
 .action-icon {
   font-size: 1.125rem; flex-shrink: 0;
   width: 36px; height: 36px;
@@ -316,7 +331,9 @@ select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 2px
 .action-label { display: block; font-size: 0.9rem; letter-spacing: 2px; font-weight: 500; line-height: 1.2; margin-bottom: 3px; color: inherit; }
 .action-sub   { display: block; font-size: 0.75rem; letter-spacing: 1px; opacity: .7; font-family: 'DM Mono', monospace; }
 
-.action-share    { border: 0.5px solid rgba(51,255,170,0.4); background: linear-gradient(135deg,rgba(51,255,170,0.08),rgba(0,229,255,0.05)); color: #33ffaa; }
+.action-share   { border: 0.5px solid rgba(51,255,170,0.4); 
+  background: linear-gradient(135deg,rgba(51,255,170,0.08),rgba(0,229,255,0.05)); 
+  color: #ffffff; }
 .action-share .action-icon { background: rgba(51,255,170,0.1); }
 .action-share:hover { border-color: rgba(51,255,170,0.7); background: linear-gradient(135deg,rgba(51,255,170,0.15),rgba(0,229,255,0.1)); box-shadow: 0 0 24px rgba(51,255,170,0.15); transform: translateY(-1px); }
 
