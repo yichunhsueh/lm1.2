@@ -95,16 +95,16 @@ function renderS1(){
   const mx=sorted[0][1]||1;
   document.getElementById('elemBars').innerHTML=sorted.map(([e,v])=>`
     <div class="elem-row">
-      <span style="width:16px;font-size:12px;font-weight:500;color:${ET[e]}">${e}</span>
+      <span style="width:16px;font-size:0.875rempx;font-weight:500;color:${ET[e]}">${e}</span>
       <div class="elem-bar-bg"><div class="elem-bar-fill" style="width:${Math.max(v/mx*100,4)}%;background:${EC[e]}"></div></div>
-      <span style="font-size:11px;color:var(--text3);min-width:20px;text-align:right;font-family:'DM Mono',monospace">${v}</span>
-      ${v===0?`<span style="font-size:10px;padding:1px 7px;border-radius:6px;background:${EB[e]};color:${ET[e]}">缺失</span>`:''}
+      <span style="font-size:0.875rempx;color:var(--text3);min-width:20px;text-align:right;font-family:'DM Mono',monospace">${v}</span>
+      ${v===0?`<span style="font-size:0.875rem;padding:1px 7px;border-radius:6px;background:${EB[e]};color:${ET[e]}">缺失</span>`:''}
     </div>`).join('');
 
   document.getElementById('healAlert').innerHTML=`
     <div style="margin-top:0.875rem;padding:0.875rem;background:${EB[S.mis]};border-radius:8px;border-left:2px solid ${EC[S.mis]}">
-      <div style="font-size:11px;font-weight:500;color:${ET[S.mis]};margin-bottom:3px">療癒核心：補${S.mis}能量</div>
-      <div style="font-size:11px;color:${ET[S.mis]};line-height:1.6">${S.dom}為主色（強旺主結構），${S.mis}為療癒色（補充張力），這幅畫本身就是你的平衡處方</div>
+      <div style="font-size:0.875rempx;font-weight:500;color:${ET[S.mis]};margin-bottom:3px">療癒核心：補${S.mis}能量</div>
+      <div style="font-size:0.875rempx;color:${ET[S.mis]};line-height:1.6">${S.dom}為主色（強旺主結構），${S.mis}為療癒色（補充張力），這配色就是你的平衡處方</div>
     </div>`;
 
   const showElems=[...new Set([S.dom,S.mis,sorted[1][0]])].slice(0,3);
@@ -122,7 +122,7 @@ function renderS1(){
   const segs=[[S.dom,'主色','50%'],[S.mis,'療癒','30%'],[sorted[1][0],'輔色','20%']];
   document.getElementById('palStrip').innerHTML=segs.map(([e,r,pct])=>`
     <div class="pal-seg" style="background:${EP[e]};flex:${parseInt(pct)};color:${e==='金'?'#5A5852':'rgba(255,255,255,.9)'}">
-      <span>${e}</span><span style="font-size:9px;opacity:.75">${r} ${pct}</span>
+      <span>${e}</span><span style="font-size:12px;opacity:.75">${r} ${pct}</span>
     </div>`).join('');
 
   const compMap={木:'畫面向上生長，有機線條為主，空間有呼吸感',火:'中心放射聚焦，高對比光暈，熱烈而清晰',土:'重心居中偏下，均衡穩定，有包覆與歸屬感',金:'大面積精準留白，單一聚焦，收斂而純粹',水:'由下而上的沉澱層次，流動而深邃，像深海'};
@@ -184,11 +184,11 @@ function renderS3(){
     <div style="display:flex;align-items:center;gap:10px;margin-bottom:0.875rem">
       <div style="width:38px;height:38px;border-radius:50%;background:${EB[S.dom]};border:1px solid ${EC[S.dom]}40;display:flex;align-items:center;justify-content:center;font-size:16px;color:${ET[S.dom]};font-weight:500;flex-shrink:0">${zw.glyph}</div>
       <div>
-        <div style="font-size:13px;font-weight:500;color:var(--text)">${zw.name}</div>
-        <div style="font-size:10px;color:var(--text3);font-family:'DM Mono',monospace;margin-top:2px">${hex}</div>
+        <div style="font-size:0.875rempx;font-weight:500;color:var(--text)">${zw.name}</div>
+        <div style="font-size:0.875rem;color:var(--text3);font-family:'DM Mono',monospace;margin-top:2px">${hex}</div>
       </div>
     </div>
-    <div style="font-size:12px;color:var(--text2);line-height:1.85">${zw.trait}</div>`;
+    <div style="font-size:0.875rempx;color:var(--text2);line-height:1.85">${zw.trait}</div>`;
 }
 
 function renderS4(){
@@ -230,7 +230,7 @@ function renderS4(){
     [dom,'主色·50%','50'],[mis,'療愈·30%','30'],[sorted[1][0],'輔色·20%','20']
   ].map(([e,r,f])=>`
     <div class="pal-seg" style="background:${EP[e]};flex:${f};color:${e==='金'?'#5A5852':'rgba(255,255,255,.85)'}">
-      <span>${e}</span><span style="font-size:9px;opacity:.8">${r}</span>
+      <span>${e}</span><span style="font-size:12px;opacity:.8">${r}</span>
     </div>`).join('');
   document.getElementById('colorNote').textContent=`主色 ${traitData[dom].color} · 療癒色 ${traitData[mis].color}`;
 
@@ -414,7 +414,7 @@ function downloadMatrix(){
   ];
   const palHtml = segs.map(s=>
     `<div style="flex:0 0 ${s.w};background:${EC_MAP[s.e]||'#333'};height:100%;display:flex;align-items:flex-end;padding:4px 6px;box-sizing:border-box;">
-       <span style="font-size:9px;color:rgba(255,255,255,0.7);font-family:monospace">${s.e} · ${s.label}</span>
+       <span style="font-size:12px;color:rgba(255,255,255,0.7);font-family:monospace">${s.e} · ${s.label}</span>
      </div>`
   ).join('');
 
@@ -426,23 +426,23 @@ function downloadMatrix(){
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 body{background:#07090f;color:#e8eaf0;font-family:'Noto Serif TC',serif;padding:40px 24px;max-width:600px;margin:0 auto;}
-.logo{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:5px;color:#444;text-transform:uppercase;margin-bottom:6px;}
+.logo{font-family:'DM Mono',monospace;font-size:0.875rem;letter-spacing:5px;color:#444;text-transform:uppercase;margin-bottom:6px;}
 .title{font-size:22px;font-weight:300;letter-spacing:6px;color:#e8eaf0;margin-bottom:2px;}
-.subtitle{font-size:11px;font-family:'DM Mono',monospace;color:#444;letter-spacing:3px;margin-bottom:36px;}
+.subtitle{font-size:0.875rempx;font-family:'DM Mono',monospace;color:#444;letter-spacing:3px;margin-bottom:36px;}
 .divider{height:0.5px;background:linear-gradient(90deg,transparent,#2b4f8c,#6c8eff,transparent);margin:24px 0;}
-.section-title{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;color:#6c8eff;text-transform:uppercase;margin-bottom:12px;}
+.section-title{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:3px;color:#6c8eff;text-transform:uppercase;margin-bottom:12px;}
 .tag-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;}
-.tag{padding:4px 12px;border-radius:20px;border:0.5px solid #2b4f8c;font-size:11px;color:#a0b4ff;font-family:'DM Mono',monospace;letter-spacing:1px;}
+.tag{padding:4px 12px;border-radius:20px;border:0.5px solid #2b4f8c;font-size:0.875rempx;color:#a0b4ff;font-family:'DM Mono',monospace;letter-spacing:1px;}
 .pal{display:flex;border-radius:8px;overflow:hidden;height:36px;margin-bottom:6px;}
-.color-note{font-size:10px;color:#555;font-family:'DM Mono',monospace;margin-bottom:20px;}
+.color-note{font-size:0.875rem;color:#555;font-family:'DM Mono',monospace;margin-bottom:20px;}
 .star-row{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
 .star-glyph{width:40px;height:40px;border-radius:50%;background:#1a2240;border:1px solid #2b4f8c40;display:flex;align-items:center;justify-content:center;font-size:17px;color:#6c8eff;flex-shrink:0;}
 .star-name{font-size:14px;color:#e8eaf0;letter-spacing:2px;}
-.star-trait{font-size:11px;color:#888;line-height:1.8;margin-bottom:20px;}
+.star-trait{font-size:0.875rempx;color:#888;line-height:1.8;margin-bottom:20px;}
 .heal-main{font-size:14px;color:#e8eaf0;letter-spacing:1px;line-height:1.8;margin-bottom:10px;}
-.heal-sub{font-size:11px;color:#aaa;line-height:2;margin-bottom:14px;}
-.heal-aff{font-size:11px;color:#33ffaa;letter-spacing:1px;line-height:1.8;padding:10px 14px;border-left:2px solid #33ffaa40;background:rgba(51,255,170,0.04);}
-.footer{margin-top:40px;padding-top:16px;border-top:0.5px solid #111;text-align:center;font-family:'DM Mono',monospace;font-size:9px;color:#333;letter-spacing:2px;}
+.heal-sub{font-size:0.875rempx;color:#aaa;line-height:2;margin-bottom:14px;}
+.heal-aff{font-size:0.875rempx;color:#33ffaa;letter-spacing:1px;line-height:1.8;padding:10px 14px;border-left:2px solid #33ffaa40;background:rgba(51,255,170,0.04);}
+.footer{margin-top:40px;padding-top:16px;border-top:0.5px solid #111;text-align:center;font-family:'DM Mono',monospace;font-size:12px;color:#333;letter-spacing:2px;}
 @media print{body{background:#fff;color:#111;}.title{color:#111;}.heal-aff{color:#0a7a50;border-color:#0a7a50;background:#f0fff8;}.tag{color:#3a5fbb;border-color:#3a5fbb;}.section-title{color:#3a5fbb;}.star-name{color:#111;}.heal-main,.heal-sub,.star-trait{color:#333;}.footer{color:#999;}}
 </style></head><body>
 <div class="logo">LIFE Matrix</div>
