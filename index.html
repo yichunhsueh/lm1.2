@@ -17,7 +17,9 @@
         <span>TOP</span>
     </div>
     <nav>
-        <div class="logo">LIFE+</div>
+        <a href="#" class="logo-link-top" title="回到頂部">
+            <div class="logo">LIFE+</div>
+        </a>
         <div class="menu-toggle" id="mobile-menu-btn" onclick="toggleMobileMenu()">
             <span></span>
             <span></span>
@@ -278,14 +280,14 @@
                     </div>
                     <div class="card">
                         <div class="card-title">你的色彩人格 · 命運特質</div>
-                        <p style="font-size:12px;color:var(--text3);margin-bottom:0.875rem;font-style:italic">
+                        <p style="font-size:1rem;color:var(--text3);margin: bottom 16px;font-style:italic">
                             每個元素的色調，都在說一件關於你的事。</p>
                         <div class="trait-grid" id="traitGrid"></div>
                     </div>
                     <div class="card">
                         <div class="card-title">初步構圖語言預覽</div>
                         <div class="palette-strip" id="palStrip"></div>
-                        <div id="compDesc" style="font-size:12px;color:var(--text2);line-height:1.75;"></div>
+                        <div id="compDesc" style="font-size:1rem;color:var(--text2);line-height:1.75;"></div>
                     </div>
                     <button class="btn-p" onclick="go(2)">感覺到了，繼續 →</button>
                     <button class="btn-s" onclick="go(0)">← 重新輸入</button>
@@ -422,17 +424,17 @@
                 <div class="step" id="s3">
                     <div class="card">
                         <div class="card-title">紫微主星 · 命盤性格</div>
-                        <p style="font-size:12px;color:var(--text3);margin-bottom:0.875rem;">
+                        <p style="font-size:0.875rem;color:var(--text3);margin-bottom:0.875rem;">
                             根據你的命盤自動計算的對應主星特質，可加入畫面符號層
                         </p>
                         <div id="ziwei"
-                            style="background:var(--bg2);border-radius:10px;padding:1rem;font-size:12px;line-height:1.85;">
+                            style="background:var(--bg2);border-radius:10px;padding:1rem;font-size:0.875rem;line-height:1.85;">
                         </div>
                     </div>
 
                     <div class="card">
                         <div class="card-title">玄學符號層（最多選3個）</div>
-                        <p style="font-size:12px;color:var(--text3);margin-bottom:0.75rem;font-style:italic">
+                        <p style="font-size0.875rem;color:var(--text3);margin-bottom:0.75rem;font-style:italic">
                             以極細線條若隱若現地融入畫面背景</p>
                         <div class="sym-grid" id="symG">
                             <div class="sym-card" onclick="togSym(this,&#39;Sri Yantra 宇宙能量幾何矩陣&#39;)">
@@ -564,7 +566,7 @@
                                 · 部分內容已鎖定</span>
                         </div>
                         <button id="authToggleBtn" onclick="openAuthModal()"
-                            style="font-size:10px;padding:4px 12px;border-radius:6px;border:0.5px solid var(--border-glow);background:transparent;color:var(--text2);cursor:pointer;font-family:&#39;DM Mono&#39;,monospace;transition:all .2s;">主用戶登入</button>
+                            style="font-size:12px;padding:4px 12px;border-radius:6px;border:0.5px solid var(--border-glow);background:transparent;color:var(--text3);cursor:pointer;font-family:&#39;DM Mono&#39;,monospace;transition:all .2s;">主用戶登入</button>
                     </div>
 
                     <!-- 公開：情感療育主張 -->
@@ -589,7 +591,7 @@
                         </div>
                     </div>
 
-                    <!-- 鎖定：療育商品延伸方向 -->
+                    <!-- 鎖定：療癒商品延伸方向 -->
                     <div class="card locked-card" id="lockCard2">
                         <div class="card-title">療癒商品延伸方向</div>
                         <div id="prodList"></div>
@@ -639,7 +641,7 @@
                             <span class="action-icon">✦</span>
                             <span class="action-btn-text">
                                 <span class="action-label">立即分享</span>
-                                <span class="action-sub">複製分享文案 · LINE / FB / IG</span>
+                                <span class="action-sub">快跟親朋好友一起討論生命座標!</span>
                             </span>
                         </button>
                         <button class="action-btn action-download" onclick="downloadMatrix()">
@@ -653,7 +655,7 @@
                             <span class="action-icon">◎</span>
                             <span class="action-btn-text">
                                 <span class="action-label">預約專屬訂製服務</span>
-                                <span class="action-sub">與設計師一對一解碼你的生命座標</span>
+                                <span class="action-sub">與美學轉譯師一對一解碼你的生命座標</span>
                             </span>
                         </a>
                     </div>
@@ -805,7 +807,7 @@
                 </div>
 
                 <div class="highlight-box">
-                    <h3>視覺調候 (Visual Tuning) 與 時空封印</h3>
+                    <h3>視覺調候 與 時空封印</h3>
                     <p>LIFE 系統讓每一件作品不只是單純的紀念，更是一份量身定做的能量調和。
                         <br>將記憶的瞬間，以極簡美學的專屬的守護符號，封印留存下來。
                     </p>
@@ -852,14 +854,13 @@
                     <div class="faq-item" onclick="toggleFaq(this)">
                         <div class="faq-question">
                             <span class="faq-number">02</span>
-                            <h3>「生命視覺座標」能為我做什麼？</h3>
+                            <h3>「LIFE+」能為我做什麼？</h3>
                             <span class="faq-icon">+</span>
                         </div>
                         <div class="faq-answer">
                             <p>因為「瞬間即永恆」。記憶會隨時間模糊，但數位化的紀錄不會。<br>
-                                這個座標是專屬於你、誰也拿不走的生命密碼，能作為您靈魂的畫布、人生的錨定點，
-                                不論未來經歷什麼變化，這個座標都會穩定地存在，替你記錄著曾經的美好與力量，
-                                更是日後延伸為客製化實體、數位生命紀錄藝術品最核心的數位資產來源。
+                                「生命視覺座標」這個座標是專屬於您，能作為您靈魂的畫布、人生的錨定點，
+                                替你記錄著曾經的美好與力量，更是日後延伸為客製化實體、數位生命紀錄藝術品最核心的數位資產來源。
                             </p>
                         </div>
                     </div>
@@ -956,7 +957,7 @@
                                 <span>[ IDENTITY CACHE ]</span>
                             </div>
                             <div class="slide-intro">
-                               家族共享的線上數位空間。
+                                家族共享的線上數位空間。
                                 打破時空限制，讓多位家族成員共同參與、攜手編織並封存彼此的溫暖記憶年輪。
                             </div>
                         </div>
@@ -1025,7 +1026,7 @@
                 <div class="line-qr-mock"><img src="assets/images/line-qr-code.jpg" alt="LINE QR Code"></div>
                 <a href="https://lin.ee/sP2q1SG" onclick="alert('模擬對接：已開啟加入官方帳號連結')">👆點我直接與專屬生命策展人聊聊 →</a>
             </div>
-            <label>歡迎透過下方社群連結與我們聯繫^_^</label>
+            <label>也歡迎透過左下角社群連結與我們聯繫!</label>
         </div>
         <!--與我聯繫/END -->
 
@@ -1110,18 +1111,23 @@
         </div>
         <div class="footer-bottom">
             <div>&copy; 2026 LIFE System & XUEXUEni Studio. All Rights Reserved.</div>
-            <button class="btn-footer-science" onclick="downloadScienceReport()">
-                <svg viewBox="0 0 24 24" class="science-btn-svg">
-                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                    <polyline points="7 10 12 15 17 10"></polyline>
-                    <line x1="12" y1="15" x2="12" y2="3"></line>
-                </svg>
-                LIFE+ 記憶與療癒系統計畫科學實證
-            </button>
+            <div class="footer-bottom-right">
+                <button class="lang-toggle-btn" onclick="switchLang()">EN</button>
+                <button class="btn-footer-science" onclick="downloadScienceReport()">
+                    <svg viewBox="0 0 24 24" class="science-btn-svg">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    LIFE+ 記憶與療癒系統計畫科學實證
+                </button>
+            </div>
+        </div>
     </footer>
     <!-- JS-->
     <script src="assets/js/js.js"></script>
     <script src="assets/js/code-data.js"></script>
+    <script src="assets/js/lang.js"></script>
 </body>
 
 </html>
