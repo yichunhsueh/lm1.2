@@ -21,8 +21,8 @@ function initSystem() {
             // 讓圓圈的初始半徑錯開，形成層層疊加的等高線感
             radius: (Math.max(window.innerWidth, window.innerHeight) / totalRipples) * i,
             speed: 0.2 + Math.random() * 0.5,          // 👈 擴散速度（數字越大向外衝越快）
-            weight: Math.random() > 0.8 ? 0.8 : 0.2,    // 👈 線條粗細 (px)
-            opacityFactor: 0.1 + Math.random() * 0.35, // 👈 基礎透明度上限
+            weight: Math.random() > 0.6 ? 0.6 : 0.1,    // 👈 線條粗細 (px)
+            opacityFactor: 0.1 + Math.random() * 0.3, // 👈 基礎透明度上限
             seed: Math.random() * 150,                 // 隨機數學種子，用來製造波浪細節
             color: NEON_COLORS[Math.floor(Math.random() * NEON_COLORS.length)]
         });
